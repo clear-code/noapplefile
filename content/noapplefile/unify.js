@@ -16,7 +16,7 @@ function unifyMIMETypes()
 	prefs.getChildren('extensions.noapplefile@clear-code.com.typesToUnify.')
 		.forEach(function(aType) {
 			var fromType = aType.split('.').pop();
-			if (!ns.mimeHandlerExists(fromEntry.mimeType))
+			if (!ns.mimeHandlerExists(fromType))
 				return;
 
 			count++;
@@ -26,7 +26,7 @@ function unifyMIMETypes()
 
 			fromEntry.isEditable = toEntry.isEditable = true;
 			fromEntry.mUpdateMode = true;
-			toEntry.mUpdateMode = ns.mimeHandlerExists(toEntry.mimeType);
+			toEntry.mUpdateMode = ns.mimeHandlerExists(toType);
 
 			if (!toEntry.mimeType) { // initialize: inherit properties from the source
 				toEntry.mimeType = toType;
