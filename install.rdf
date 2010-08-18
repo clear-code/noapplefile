@@ -6,7 +6,7 @@
                    em:id="noapplefile@clear-code.com"
                    em:name="No application/applefile"
                    em:version="0.1"
-                   em:description=""
+                   em:description="Prevents storing of the MIME Type &quot;application/applefile&quot;."
                    em:creator="ClearCode Inc."
                    em:homepageURL="http://www.clear-code.com/">
 <!--
@@ -21,7 +21,7 @@
     <em:localized>
       <RDF:Description em:locale="en-US"
                        em:name="No application/applefile"
-                       em:description=""
+                       em:description="Prevents storing of the MIME Type &quot;application/applefile&quot;."
                        em:creator="ClearCode Inc."
                        em:homepageURL="http://www.clear-code.com/"/>
       <em:contributor>Jordan Callicoat</em:contributor>
@@ -30,7 +30,7 @@
     <em:localized>
       <RDF:Description em:locale="ja"
                        em:name="No application/applefile"
-                       em:description=""
+                       em:description="MIME Typeとして&quot;application/applefile&quot;が保存されないようにします。"
                        em:creator="株式会社クリアコード"
                        em:homepageURL="http://www.clear-code.com/"/>
       <em:contributor>Jordan Callicoat</em:contributor>
@@ -41,7 +41,7 @@
 	<em:targetApplication>
       <!-- Thunderbird -->
 	  <RDF:Description em:id="{3550f703-e582-4d05-9a08-453d09bdfdc6}"
-	                   em:minVersion="3.0"
+	                   em:minVersion="2.0"
 	                   em:maxVersion="3.1.*" />
 	</em:targetApplication>
   </RDF:Description>

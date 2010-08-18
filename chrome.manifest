@@ -1,3 +1,5 @@
 content	noapplefile	jar:chrome/noapplefile.jar!/content/noapplefile/
 
 overlay	chrome://messenger/content/messenger.xul	chrome://noapplefile/content/messengerOverlay.xul
+overlay	chrome://messenger/content/messageWindow.xul	chrome://noapplefile/content/messengerOverlay.xul
+overlay	chrome://messenger/content/messengercompose/messengercompose.xul	chrome://noapplefile/content/messengerOverlay.xul
