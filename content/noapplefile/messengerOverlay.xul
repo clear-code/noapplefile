@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="application/javascript" src="unify.js" />
+<script type="application/x-javascript"><![CDATA[
+	window.addEventListener('load', function() {
+		window.removeEventListener('load', arguments.callee, false);
+		unifyMIMETypes();
+	}, false);
+]]></script>
+</overlay>
