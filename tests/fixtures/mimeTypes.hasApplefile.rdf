@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="urn:mimetype:handler:test/plain"
+                   NC:saveToDisk="true"
+                   NC:alwaysAsk="false">
+    <NC:externalApplication RDF:resource="urn:mimetype:externalApplication:test/plain"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mimetype:handler:application/applefile"
+                   NC:alwaysAsk="true"
+                   NC:saveToDisk="true">
+    <NC:externalApplication RDF:resource="urn:mimetype:externalApplication:application/applefile"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mimetype:test/plain"
+                   NC:value="test/plain"
+                   NC:editable="true"
+                   NC:description="aaa"
+                   NC:fileExtensions="txt">
+    <NC:handlerProp RDF:resource="urn:mimetype:handler:test/plain"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mimetype:application/applefile"
+                   NC:value="application/applefile"
+                   NC:editable="true"
+                   NC:description="Adobe Acrobat Document">
+    <NC:fileExtensions>pdf</NC:fileExtensions>
+    <NC:fileExtensions>pdff</NC:fileExtensions>
+    <NC:handlerProp RDF:resource="urn:mimetype:handler:application/applefile"/>
+  </RDF:Description>
+  <RDF:Seq RDF:about="urn:mimetypes:root">
+    <RDF:li RDF:resource="urn:mimetype:application/applefile"/>
+    <RDF:li RDF:resource="urn:mimetype:test/plain"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:root"
+                   NC:ja_defaultHandlersVersion="-1" />
+  <RDF:Description RDF:about="urn:mimetypes">
+    <NC:MIME-types RDF:resource="urn:mimetypes:root"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mimetype:externalApplication:test/plain"
+                   NC:prettyName="" />
+</RDF:RDF>

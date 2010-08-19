@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="urn:mimetype:handler:test/plain"
+                   NC:saveToDisk="true"
+                   NC:alwaysAsk="false">
+    <NC:externalApplication RDF:resource="urn:mimetype:externalApplication:test/plain"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mimetype:test/plain"
+                   NC:value="test/plain"
+                   NC:editable="true"
+                   NC:description="aaa"
+                   NC:fileExtensions="txt">
+    <NC:handlerProp RDF:resource="urn:mimetype:handler:test/plain"/>
+  </RDF:Description>
+  <RDF:Seq RDF:about="urn:mimetypes:root">
+    <RDF:li RDF:resource="urn:mimetype:test/plain"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:root"
+                   NC:ja_defaultHandlersVersion="-1" />
+  <RDF:Description RDF:about="urn:mimetypes">
+    <NC:MIME-types RDF:resource="urn:mimetypes:root"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mimetype:externalApplication:test/plain"
+                   NC:prettyName="" />
+</RDF:RDF>

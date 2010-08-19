@@ -51,6 +51,8 @@ var NoApplefile = {
 			if (remoteDS)
 				remoteDS.Flush();
 		}
+
+		return count;
 	},
 
 	mapContentType : function(aType, aFileName)
