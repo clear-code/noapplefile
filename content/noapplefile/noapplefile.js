@@ -29,10 +29,32 @@ var NoApplefile = {
 										.split(/[,\s]+/);
 	},
 
+	isDSLoaded : function()
+	{
+		var ns = this.namespace;
+		var container = ns.gRDF.GetResource('urn:mimetypes');
+		var mimeTypes = ns.gRDF.GetResource(ns.NC_RDF('MIME-types'));
+		var root = ns.gRDF.GetResource('urn:mimetypes:root');
+		return ns.gDS.HasAssertion(container, mimeTypes, root, true);
+	},
+
 	init : function()
 	{
 		this.overrideFunctions();
-		this.deleteBlockedTypes();
+		this.deleteBlockedTypesWithDelay();
+	},
+
+	deleteBlockedTypesWithDelay : function()
+	{
+		// do operations with a delay, because the datasource is not loaded yet
+		// on the startup time on Thunderbird 2.
+		var count = 0;
+		var timer = window.setInterval(function(aSelf) {
+			if (!aSelf.isDSLoaded() && count++ < 200)
+				return;
+			window.clearInterval(timer);
+			aSelf.deleteBlockedTypes();
+		}, 100, this);
 	},
 
 	deleteBlockedTypes : function()
