@@ -22,9 +22,11 @@ function setUp()
 
 function test_deleteBlockedTypes()
 {
+	utils.wait(250);
 	assert.equals(1, NoApplefile.deleteBlockedTypes());
+	utils.wait(250);
 	var contents = utils.readFrom(rdf);
-	assert.equals(-1, contents.indexOf('application/applefile'), contents);
+	assert.notContains('application/applefile', contents);
 }
 
 test_mapContentType.parameters = {
@@ -37,6 +39,11 @@ test_mapContentType.parameters = {
 		type     : 'application/pdf',
 		filename : 'file.pdf',
 		expected : 'application/pdf'
+	},
+	mappedUnknown : {
+		type     : 'application/applefile',
+		filename : 'file.unknown',
+		expected : 'application/x-unknown'
 	},
 };
 function test_mapContentType(aParameter)
