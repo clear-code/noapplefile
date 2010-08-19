@@ -31,8 +31,6 @@ var NoApplefile = {
 
 	init : function()
 	{
-		window.removeEventListener('load', this, false);
-
 		this.overrideFunctions();
 		this.deleteBlockedTypes();
 	},
@@ -86,9 +84,10 @@ var NoApplefile = {
 		switch (aEvent.type)
 		{
 			case 'load':
-				return this.init();
+				window.removeEventListener('load', this, false);
+				this.init();
+				return;
 		}
 	}
 };
 
-window.addEventListener('load', NoApplefile, false);
