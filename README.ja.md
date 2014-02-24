@@ -1,0 +1,23 @@
+Thunderbirdから送信したメールがMicrosoft Exchange Server 2007等のメールサーバによって拒絶される問題の発生を抑止します。
+
+## 問題の詳細な情報
+
+この問題は以下の原因により発生します。
+
+ * Mac OS上のメールクライアントでメールにファイルを1つ添付すると、ファイルの実体（データフォーク：application/pdfなど）とファイルのメタ情報（リソースフォーク：application/applefile）の両方が添付される場合があります。
+ * Exchange Server 2007は、MIME Typeが「application/applefile」である添付ファイルを含むメールを拒絶する仕様になっています。
+ * Thunderbirdは、（Thunderbirdにとって）未知のMIME Typeが設定された添付ファイル付きのメールを受信し、添付ファイルをダブルクリックするなどの方法で開いた場合、そのファイルの拡張子とMIME Typeを関連付けて記憶します。また、次に同じ拡張子のファイルを添付して送信しようとした場合には、Thunderbirdは、OSが提供する情報よりも、この時記憶したMIME Typeを優先して使用します。
+
+これらの原因によって、Thunderbirdでメールにファイルを添付するとMIME Typeが「application/pdf」などの本来のMIME Typeではなく「application/applefile」になってしまい、Exchange Serverを使用している相手に送ったメールが必ず拒絶されるようになるという事態が発生し得ます。
+
+この問題の回避方法として、Thunderbirdのプロファイルフォルダにあるファイル「mimeTypes.rdf」を削除するという方法が広く知られています。これは、Thunderbirdが記憶してしまった「application/applefile」というMIME Typeの情報を強制的に消去し、OSが提供する情報に基づいて添付ファイルのMIME Typeを設定するようにするというものです。
+
+しかしながら、上記のThunderbirdの仕様により、メールをよくやりとりする相手の中に、添付ファイルのMIME Typeに「application/applefile」が設定されたメールを送信する人が1人でもいると、mimeTypes.rdfに誤った情報が再び保存されてしまうため、すぐに問題が再発してしまうことになります。
+
+## このアドオンの詳細
+
+本アドオン「No application/applefile」は、Thunderbird起動時にmimeTypes.rdfの内容を確認して、MIME Type「application/applefile」の情報が存在する場合はそれを自動的に消去します。
+
+また、受信したメールの添付ファイルのMIME Typeが「application/applefile」であった場合には、ファイル名（拡張子）から正しいMIME Typeを推測し、添付ファイルのMIME Typeとしてその正しいMIME Typeが設定されていたものとしてThunderbirdに認識させます。
+
+これらの処理により、本アドオンは上記の問題の発生を抑制します。
